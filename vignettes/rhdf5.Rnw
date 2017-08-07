@@ -38,6 +38,7 @@ BiocStyle::latex()
 \SweaveOpts{keep.source=TRUE,eps=FALSE}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \title{rhdf5 - HDF5 interface for R}
 
@@ -168,7 +169,7 @@ H5Fclose(h5f)
 @
 or close all open HDF5 handles in the environment by
 <<accessorClose2>>=
-H5close()
+H5close2()
 @
 
 \subsection{Writing and reading with subsetting, chunking and compression}

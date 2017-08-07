@@ -52,4 +52,46 @@ h5ls <- function( file, recursive = TRUE, all=FALSE, datasetinfo=TRUE, index_typ
   L
 }
 
+## Added by MSMITH 10-Jul-2017
+h5ls2 <- function( file, recursive = TRUE, all=FALSE, datasetinfo=TRUE, index_type = h5default("H5_INDEX"), order = h5default("H5_ITER")) {
+    loc = h5checktypeOrOpenLoc(file, readonly=TRUE)
+    
+    if (length(datasetinfo)!=1 || !is.logical(datasetinfo)) stop("'datasetinfo' must be a logical of length 1")
+    
+    index_type <- h5checkConstants( "H5_INDEX", index_type )
+    order <- h5checkConstants( "H5_ITER", order )
+    
+    if (is.logical(recursive)) {
+        if (recursive) {
+            depth = -1L
+        } else {
+            depth = 1L
+        }
+    } else {
+        if (is.numeric(recursive)) {
+            depth = as.integer(recursive)
+            if (recursive == 0) {
+                stop("value 0 for 'recursive' is undefined, either a positive integer or negative (maximum recursion)")
+            }
+        } else {
+            stop("'recursive' must be an integer of length 1 or a logical")
+        }
+    }
+    di <- ifelse(datasetinfo, 1L, 0L)
+    L <- .Call("_h5ls2", loc$H5Identifier@ID, depth, di, index_type, order, PACKAGE='rhdf5')
+    L <- h5lsConvertToDataframe(L, all=all)
+    h5closeitLoc(loc)
+    L
+}
+
+## Added by MSMITH 10-Jul-2017
+h5lsTest <- function( file ) {
+
+    loc = h5checktypeOrOpenLoc(file, readonly=TRUE)
+    
+    L <- .Call("_h5lsTest", loc$H5Identifier@ID, PACKAGE='rhdf5')
+
+    h5closeitLoc(loc)
+    L
+}
 

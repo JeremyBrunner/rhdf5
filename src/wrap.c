@@ -22,10 +22,13 @@
 #include "h5writeDataFrame.h"
 #include "printdatatype.h"
 
+/* these are already defined in H5.h - MSMITH */
+/*
 SEXP _H5open(void);
 SEXP _H5close(void);
 SEXP _H5garbage_collect(void);
 SEXP _H5get_libversion(void);
+*/
 
 static R_CallMethodDef libraryRCalls[] = {
   {"_H5open", (DL_FUNC) &_H5open, 0},
@@ -281,6 +284,8 @@ static R_CallMethodDef libraryRCalls[] = {
   /* {"_H5Premove", (DL_FUNC) &_H5Premove, 2}, */
   /* {"_H5Punregister", (DL_FUNC) &_H5Punregister, 2}, */
   {"_h5ls", (DL_FUNC) &_h5ls, 5},
+  //{"_h5ls2", (DL_FUNC) &_h5ls2, 5},
+  {"_h5lsTest", (DL_FUNC) &_h5lsTest, 1},
   {"_h5dump", (DL_FUNC) &_h5dump, 4},
   {"_h5listIdentifier", (DL_FUNC) &_h5listIdentifier, 0},
   {"_h5validObjects", (DL_FUNC) &_h5validObjects, 0},

@@ -12,6 +12,7 @@ exportClasses(H5IdComponent)
 
 export(H5open)
 export(H5close)
+export(H5close2)
 export(H5garbage_collect)
 export(H5get_libversion)
 
