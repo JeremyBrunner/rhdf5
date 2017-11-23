@@ -8,7 +8,7 @@
 #include "myhdf5.h"
 
 SEXP _h5ls( SEXP _loc_id, SEXP _depth, SEXP _datasetinfo, SEXP _index_type, SEXP _order );
-SEXP _h5ls2( SEXP _loc_id, SEXP _depth, SEXP _datasetinfo, SEXP _index_type, SEXP _order );
-SEXP _h5lsTest( SEXP _loc_id );
+//SEXP _h5ls2( SEXP _loc_id, SEXP _depth, SEXP _datasetinfo, SEXP _index_type, SEXP _order );
+//SEXP _h5lsTest( SEXP _loc_id );
 
 #endif

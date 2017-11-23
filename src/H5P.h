@@ -9,6 +9,8 @@
 #include "H5constants.h"
 #include "HandleList.h"
 
+#include "lzf_filter.h"
+
 ////////////////////////////////////////////////////
 // General Property List Operations
 ////////////////////////////////////////////////////
@@ -256,5 +258,9 @@ SEXP _H5Pequal( SEXP _id1, SEXP _id2 );
 /* SEXP _H5Premove( SEXP _plid, SEXP _name ); */
 /* SEXP _H5Punregister( SEXP _class, SEXP _name ); */
 SEXP _H5Pclose_class( SEXP _class );
+
+/* Experimental LZF filter */
+SEXP _H5Pset_lzf( SEXP _plist_id );
+
 
 #endif

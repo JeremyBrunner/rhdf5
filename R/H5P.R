@@ -1658,3 +1658,10 @@ H5Pclose_class <- function( h5plistclass ) {
   invisible(.Call("_H5Pclose_class", h5plistclass@ID, PACKAGE='rhdf5'))
 }
 
+## LZF Filter
+H5Pset_lzf <- function( h5plist ) {
+    h5checktypeAndPLC(h5plist, "H5P_DATASET_CREATE")
+    res <- .Call("_H5Pset_lzf", h5plist@ID, PACKAGE='rhdf5')
+    invisible(res)
+}
+

@@ -285,7 +285,7 @@ static R_CallMethodDef libraryRCalls[] = {
   /* {"_H5Punregister", (DL_FUNC) &_H5Punregister, 2}, */
   {"_h5ls", (DL_FUNC) &_h5ls, 5},
   //{"_h5ls2", (DL_FUNC) &_h5ls2, 5},
-  {"_h5lsTest", (DL_FUNC) &_h5lsTest, 1},
+  //{"_h5lsTest", (DL_FUNC) &_h5lsTest, 1},
   {"_h5dump", (DL_FUNC) &_h5dump, 4},
   {"_h5listIdentifier", (DL_FUNC) &_h5listIdentifier, 0},
   {"_h5validObjects", (DL_FUNC) &_h5validObjects, 0},
@@ -295,6 +295,7 @@ static R_CallMethodDef libraryRCalls[] = {
   {"_getDatatypeClass", (DL_FUNC) &_getDatatypeClass, 1},
   {"_h5writeDataFrame", (DL_FUNC) &_h5writeDataFrame, 4},
   {"_h5errorHandling", (DL_FUNC) &_h5errorHandling, 1},
+  {"_H5Pset_lzf", (DL_FUNC) &_H5Pset_lzf, 1},
   {NULL, NULL, 0}
 };
 

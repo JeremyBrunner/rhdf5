@@ -1,7 +1,7 @@
 Package: rhdf5
 Type: Package
 Title: HDF5 interface to R
-Version: 2.21.3-dev
+Version: 2.21.3.99
 Author: Bernd Fischer, Gregoire Pau
 Maintainer: Mike Smith <mike.smith@embl.de>
 Description: This R/Bioconductor package provides an interface between HDF5 and
