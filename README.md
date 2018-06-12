@@ -9,7 +9,7 @@ It can be installed via something similar to the following command:
 ```diff 
 BiocInstaller::biocLite('grimbough/rhdf5', 
         ref = "system_lib", 
--       configure.args = "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so -lz'").
+-       configure.args = "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so'").
 ```    
 
 You should modify the paths on the red highlighted line to reflect the locations of `libhdf5_cpp.so` and `libhdf5.so` on you system.  Assuming the installation works correctly, you can verify the version of HDF5 **rhdf5** is linked against using `rhdf5::h5version()` e.g.
