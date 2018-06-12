@@ -6,12 +6,25 @@ This branch is experimental, exploring how to use a version of HDF5 installed vi
 
 It can be installed via something similar to the following command:
 
-```
+```diff
 BiocInstaller::biocLite('grimbough/rhdf5', 
-    ref = "system_lib", 
-    configure.args = "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so -lz'")
+        ref = "system_lib", 
+-       configure.args = "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so -lz'").
 ```    
 
+You should modify the paths on the red highlighted line to reflect the locations of `libhdf5_cpp.so` and `libhdf5.so` on you system.  Assuming the installation works correctly, you can verify the version of HDF5 **rhdf5** is linked against using `rhdf5::h5version()` e.g.
+
+```r
+> rhdf5::h5version()
+This is Bioconductor rhdf5 2.25.5.1 linking to C-library HDF5 1.8.16
+```
+
+This is not the same as provided via Rhdf5lib:
+
+```r
+> Rhdf5lib::getHdf5Version()
+[1] "1.8.19"
+```
 
 ## Contact
 
