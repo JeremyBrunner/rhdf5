@@ -6,10 +6,10 @@ This branch is experimental, exploring how to use a version of HDF5 installed vi
 
 It can be installed via something similar to the following command:
 
-```
+```{Diff}
 BiocInstaller::biocLite('grimbough/rhdf5', 
-    ref = "system_lib", 
-    configure.args = "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so -lz'")
+        ref = "system_lib", 
+-       configure.args = "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so -lz'")
 ```    
 
 
