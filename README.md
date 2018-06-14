@@ -9,8 +9,8 @@ It can be installed via something similar to the following command:
 ```diff 
 BiocInstaller::biocLite('grimbough/rhdf5', 
         ref = "system_lib", 
--       configure.args = c(
--            "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so'",
+        configure.args = c(
+-            "PKG_LIBS='/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so -Wl,-rpath=/usr/lib/x86_64-linux-gnu/hdf5/serial/'",
 +            "PKG_CFLAGS=-I/usr/include/hdf5/serial/",
 +            "PKG_CXXFLAGS=-I/usr/include/hdf5/serial/")
         )
