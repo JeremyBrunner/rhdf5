@@ -95,6 +95,7 @@ static R_CallMethodDef libraryRCalls[] = {
   {"_H5Sget_simple_extent_dims", (DL_FUNC) &_H5Sget_simple_extent_dims, 1},
   {"_H5Sset_extent_simple", (DL_FUNC) &_H5Sset_extent_simple, 3},
   {"_H5Sselect_hyperslab", (DL_FUNC) &_H5Sselect_hyperslab, 6},
+  {"_H5Sselect_elements", (DL_FUNC) &_H5Sselect_elements, 4},
   {"_H5Sselect_index", (DL_FUNC) &_H5Sselect_index, 3},
   {"_H5Tcopy", (DL_FUNC) &_H5Tcopy, 1},
   {"_H5Tset_size", (DL_FUNC) &_H5Tset_size, 2},

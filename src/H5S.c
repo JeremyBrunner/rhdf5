@@ -196,6 +196,24 @@ SEXP _H5Sselect_hyperslab( SEXP _space_id, SEXP _op, SEXP _start, SEXP _stride, 
     
 }
 
+/* herr_t H5Sselect_elements(hid_t space_id, H5S_seloper_t op, size_t num_elem, const hsize_t *coord); */
+SEXP _H5Sselect_elements( SEXP _space_id, SEXP _op, SEXP _num_elem, SEXP _coord) {
+  
+  hid_t space_id = STRSXP_2_HID( _space_id );
+  H5S_seloper_t op =  INTEGER(_op)[0];
+  hsize_t num_elem = REAL(_num_elem);
+  hsize_t coord[LENGTH(_coord)];
+  
+  for (int i=0; i < LENGTH(_coord); i++) {
+    coord[i] = REAL(_coord)[i];
+  }
+  
+  herr_t herr = H5Sselect_elements( space_id, op, num_elem, coord);
+  
+  SEXP Rval = ScalarInteger(herr);
+  return Rval;
+}
+
 /* H5Sselect_index is not part of the standart H5S interfaces. It is a iteratie call to H5Sselect_point. */
 SEXP _H5Sselect_index( SEXP _space_id, SEXP _start, SEXP _count) {
     //hid_t space_id =  INTEGER(_space_id)[0];

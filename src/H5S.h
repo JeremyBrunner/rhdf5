@@ -39,6 +39,7 @@ SEXP _H5Sset_extent_simple( SEXP _space_id, SEXP _current_size, SEXP _maximum_si
 /* H5Sselect_none */
 /* H5Sselect_valid */
 SEXP _H5Sselect_hyperslab( SEXP _space_id, SEXP _op, SEXP _start, SEXP _stride, SEXP _count, SEXP _block );
+SEXP _H5Sselect_elements( SEXP _space_id, SEXP _op, SEXP _num_elem, SEXP _coord) 
 SEXP _H5Sselect_index( SEXP _space_id, SEXP _start, SEXP _count);
 
 
