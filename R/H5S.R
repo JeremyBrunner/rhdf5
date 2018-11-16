@@ -129,6 +129,16 @@ H5Sselect_hyperslab <- function( h5space, op = h5default("H5S_SELECT"), start=NU
   invisible(size)
 }
 
+H5Sselect_elements <- function( h5space, coords ) {
+  
+  h5checktype(h5space, "dataspace")
+  op <- h5checkConstants( "H5S_SELECT", "H5S_SELECT_SET" )
+  
+  .Call("_H5Sselect_elements", h5space@ID, op, as.integer(ncol(coords)), coords, PACKAGE='rhdf5')
+  invisible(ncol(coords))
+  
+}
+
 H5Sselect_index <- function( h5space, index ) {
   h5checktype(h5space, "dataspace")
   dim <- H5Sget_simple_extent_dims(h5space)$size

@@ -201,12 +201,14 @@ SEXP _H5Sselect_elements( SEXP _space_id, SEXP _op, SEXP _num_elem, SEXP _coord)
   
   hid_t space_id = STRSXP_2_HID( _space_id );
   H5S_seloper_t op =  INTEGER(_op)[0];
-  hsize_t num_elem = REAL(_num_elem);
+  size_t num_elem = INTEGER(_num_elem)[0];
   hsize_t coord[LENGTH(_coord)];
   
   for (int i=0; i < LENGTH(_coord); i++) {
-    coord[i] = REAL(_coord)[i];
+    coord[i] = INTEGER(_coord)[i];
+    printf("%lld ", coord[i]);
   }
+  printf("\n");
   
   herr_t herr = H5Sselect_elements( space_id, op, num_elem, coord);
   
